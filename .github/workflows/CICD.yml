@@ -1,0 +1,32 @@
+#Thid id the name of the workflow taht will be displayed in the Action Tab
+name: CICD
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  
+   code:
+      runs-on: ubuntu-latest
+      
+      steps:
+        - name: checkout code
+          run: echo "Code Clone from github"
+          
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - name: build docker container
+          run: echo "docker container build"
+
+    Test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Test the  the container"
+          run: echo "Testing the container"
+          
+    deploy:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Deploying the Container 
+          run: echo "Docker compose deployed the app"
