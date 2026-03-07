@@ -1,4 +1,4 @@
-#Thid id the name of the workflow taht will be displayed in the Action Tab
+#This is the name of the workflow taht will be displayed in the Action Tab
 name: CICD
 
 on:
@@ -10,7 +10,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: checkout code
-          run: echo "Code Clone from github"
+          run: echo "Code cloned from GitHub"
           
    build:
       runs-on: ubuntu-latest
