@@ -1,0 +1,39 @@
+name: portfolio
+
+on:
+  push:
+    branches: [main]
+
+         # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
+permissions:
+    pages: write      # to deploy to Pages
+    id-token: write   # to verify the deployment originates from an appropriate source
+
+jobs:
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    # 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }} # This is where the URL is stored
+    
+          
+          
+    steps:
+        #get acess to your portfolio code via pre-builtup action
+      - name: checkout git 
+        uses: actions/checkout@v4
+
+                        #
+      - name: setup github pages
+        uses: actions/configure-pages@v4
+
+         #Static code artifacts
+      - name: upload static file
+        uses: actions/upload-pages-artifact@v4
+
+      - name: Deploy to github pages
+        uses:  acations/deploy-pages@v4 
+                        
